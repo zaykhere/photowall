@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, {Component} from 'react';
+import Photowall from './components/Photowall';
+import AddPost from './components/AddPost';
+import EditPost from './components/EditPost';
+import Single from './components/Single';
+import store from './store';
+import {Provider} from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Title from './components/Title';
+class App extends Component {
+  
+  
+  render(){
+    return(
+      <Provider store={store}>
+      <BrowserRouter>
+      <div>
+        <Title />
+        <Switch>
+          <Route exact path="/" component={Photowall} />
+          <Route exact path="/addpost" component={AddPost} />
+          <Route exact path="/editpost/:id" component={EditPost} />
+          <Route exact path="/single/:id" component={Single} />
+          
+        </Switch> 
+      </div>
+      </BrowserRouter>
+      </Provider>
+    )
+  }
 }
+
+
+
 
 export default App;
