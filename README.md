@@ -1,1 +1,1 @@
-Code for the photowall project which simply lets you upload photos to a website from a url and make comments.
+Code for the photowall project which simply lets you upload photos from a url and make comments.
